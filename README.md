@@ -1,4 +1,4 @@
 
-### The project was made using the Next framework.js + React.js
+### The project was made using the Next.js + React.js
 ### Interface Framework - Materialize
 ### State Manager - Redux
