@@ -1,4 +1,3 @@
-import Router from "next/router";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import FormRegister from "../components/Form/FormRegister"
@@ -29,8 +28,9 @@ export default function Profile(props) {
 
 	function exit() {
 		dispatch(exitAccount())
-		Router.back()
 	}
+
+	console.log(profile.favoritsPost);
 
 	return (
 		stateProfile.name
@@ -43,7 +43,7 @@ export default function Profile(props) {
 				<hr />
 				<div>
 					<h2>Favorits</h2>
-					{!profile.favoritsPost.length ? '' : profile.favoritsPost.map(news => <CardNews info={news} />)}
+					{!stateProfile.favoritsPost?.length ? '' : stateProfile.favoritsPost.map(news => <CardNews profile={stateProfile} info={news} />)}
 				</div>
 			</div >
 			:

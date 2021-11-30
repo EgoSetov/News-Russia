@@ -20,8 +20,8 @@
     }
   ],
   "profile": {
-    "name": "Егор",
-    "email": "sevostyanovegor02@mail.ru",
+    "name": "Наталья",
+    "email": "egor.sevostyanov.00@mail.ru",
     "password": "202cb962ac59075b964b07152d234b70",
     "favoritsPost": [
       {
@@ -29,9 +29,15 @@
         "imageUrl": "https://i3vestno.ru/media/uploads/2021/11/uploads-2021-11-uploads-2021-11-uploads-2021-11-uploads-2021-11-uploads-_0tT2MwD.jpg",
         "title": "Lorem ipsum dolor",
         "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam sit amet ipsum rutrum accumsan nec sit amet dui. Etiam iaculis, urna sit amet dapibus scelerisque, sapien odio imperdiet ex, sed cursus nunc nisi sit amet felis. Integer sit amet aliquet sem. Nam ullamcorper ultrices lectus, sit amet imperdiet ex volutpat in. In mollis ac dui pellentesque suscipit. Pellentesque accumsan vehicula odio, ac dapibus nulla ultricies quis. Vestibulum lobortis eu turpis cursus iaculis. Nulla imperdiet quam vitae felis ornare rhoncus. Sed luctus pellentesque eros, eget rutrum sapien tempor id. Praesent condimentum metus purus, eget rutrum ante tristique eu. Cras viverra vitae ex at finibus. Duis quis nunc tempus, accumsan arcu finibus, tincidunt ex. Fusce sed arcu risus. Aliquam consequat quis erat at tincidunt."
+      },
+      {
+        "id": 2,
+        "imageUrl": "https://www.lipetskmedia.ru/images/news_/154/727_big2.jpg",
+        "title": "lobortis",
+        "body": "Nunc aliquam sed enim id lobortis. Vivamus imperdiet faucibus est et finibus. Curabitur ultrices ultricies eros, vitae facilisis quam suscipit ut. Etiam venenatis lectus sit amet vehicula pharetra. Suspendisse eu dui congue, bibendum odio eu, fringilla ipsum. Curabitur eu pellentesque dui, eget varius felis. Aliquam erat volutpat. Maecenas fermentum in ante eu cursus. Suspendisse a augue elementum, efficitur ex at, tempus elit. Pellentesque sapien sem, aliquet in bibendum ac, fringilla eget ligula. Phasellus ipsum est, sollicitudin non accumsan sit amet, malesuada at velit. Duis urna erat, ornare tincidunt cursus quis, molestie non odio. Nullam gravida nisl eros, a cursus turpis vulputate ultricies. Curabitur molestie nunc ut consequat hendrerit. Morbi commodo ligula nulla, fermentum blandit urna dapibus sit amet."
       }
     ],
-    "id": 1
+    "id": 2
   },
   "users": [
     {
@@ -52,7 +58,20 @@
       "name": "Наталья",
       "email": "egor.sevostyanov.00@mail.ru",
       "password": "202cb962ac59075b964b07152d234b70",
-      "favoritsPost": [],
+      "favoritsPost": [
+        {
+          "id": 1,
+          "imageUrl": "https://i3vestno.ru/media/uploads/2021/11/uploads-2021-11-uploads-2021-11-uploads-2021-11-uploads-2021-11-uploads-_0tT2MwD.jpg",
+          "title": "Lorem ipsum dolor",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis quam sit amet ipsum rutrum accumsan nec sit amet dui. Etiam iaculis, urna sit amet dapibus scelerisque, sapien odio imperdiet ex, sed cursus nunc nisi sit amet felis. Integer sit amet aliquet sem. Nam ullamcorper ultrices lectus, sit amet imperdiet ex volutpat in. In mollis ac dui pellentesque suscipit. Pellentesque accumsan vehicula odio, ac dapibus nulla ultricies quis. Vestibulum lobortis eu turpis cursus iaculis. Nulla imperdiet quam vitae felis ornare rhoncus. Sed luctus pellentesque eros, eget rutrum sapien tempor id. Praesent condimentum metus purus, eget rutrum ante tristique eu. Cras viverra vitae ex at finibus. Duis quis nunc tempus, accumsan arcu finibus, tincidunt ex. Fusce sed arcu risus. Aliquam consequat quis erat at tincidunt."
+        },
+        {
+          "id": 2,
+          "imageUrl": "https://www.lipetskmedia.ru/images/news_/154/727_big2.jpg",
+          "title": "lobortis",
+          "body": "Nunc aliquam sed enim id lobortis. Vivamus imperdiet faucibus est et finibus. Curabitur ultrices ultricies eros, vitae facilisis quam suscipit ut. Etiam venenatis lectus sit amet vehicula pharetra. Suspendisse eu dui congue, bibendum odio eu, fringilla ipsum. Curabitur eu pellentesque dui, eget varius felis. Aliquam erat volutpat. Maecenas fermentum in ante eu cursus. Suspendisse a augue elementum, efficitur ex at, tempus elit. Pellentesque sapien sem, aliquet in bibendum ac, fringilla eget ligula. Phasellus ipsum est, sollicitudin non accumsan sit amet, malesuada at velit. Duis urna erat, ornare tincidunt cursus quis, molestie non odio. Nullam gravida nisl eros, a cursus turpis vulputate ultricies. Curabitur molestie nunc ut consequat hendrerit. Morbi commodo ligula nulla, fermentum blandit urna dapibus sit amet."
+        }
+      ],
       "id": 2
     }
   ]

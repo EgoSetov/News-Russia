@@ -2,7 +2,8 @@ import Link from 'next/link'
 
 export default function CardNews(props) {
 	const { imageUrl, id, title, body } = props.info
-	
+	const { favoritsPost, email } = props.profile
+
 	return (
 		<div className="row">
 			<div className="col s12">
@@ -23,7 +24,7 @@ export default function CardNews(props) {
 						<Link href={`/news/${id}`}>
 							<a>Подробнее</a>
 						</Link>
-						<button className="btn" onClick={() => props.addPostInFavorits(id)} className="btn">Добавить в избранное</button>
+						<button className="btn" disabled={email ? favoritsPost.some(news => news.id === id) : false} onClick={() => props.addPostInFavorits(id)} className="btn">Добавить в избранное</button>
 					</div>
 				</div>
 			</div>
