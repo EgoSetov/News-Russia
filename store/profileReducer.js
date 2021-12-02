@@ -18,25 +18,31 @@ const profileReducer = (state = initialState, action) => {
 
 export const addProfileAC = (profile) => ({ type: 'addProfile', profile })
 
-export const addUserAC = (profile) => async (dispatch) => {
+export const registAC = (profile) => async (dispatch) => {
 	const { name, email, password } = profile
-	return await fetch('http://localhost:3000/api/register', {
-		method: 'POST',
-		headers: {
-			"Accept": "application/json",
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			name,
-			email,
-			password
+	try {
+		return await fetch('http://localhost:3000/api/register', {
+			method: 'POST',
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				name,
+				email,
+				password
+			})
 		})
-	})
+	}
+	catch (e) {
+		console.log(e);
+	}
 }
 
 export const authAC = (profile) => async (dispatch) => {
 	const { email, password } = profile
-	const response = await fetch('http://localhost:3000/api/auth', {
+	try{
+		const response = await fetch('http://localhost:3000/api/auth', {
 		method: 'POST',
 		headers: {
 			"Accept": "application/json",
@@ -51,11 +57,12 @@ export const authAC = (profile) => async (dispatch) => {
 		then(data => data.json())
 	dispatch(addProfileAC(dataprofile))
 	return response
-}
-
-export const getProfile = () => async (dispatch) => {
-	const data = await fetch('http://localhost:3000/api/auth')
-		.then(data => data.json())
+	
+	}
+	catch(e){
+		console.log(e);
+	}
+	
 }
 
 export const exitAccount = () => async (dispatch) => {
@@ -73,7 +80,7 @@ export const exitAccount = () => async (dispatch) => {
 
 export const addPostInFavoritsAC = (idNews, idProfile) => async (dispatch) => {
 	await fetch('http://localhost:3000/api/favorits', {
-		method: 'PUT',
+		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
@@ -83,6 +90,24 @@ export const addPostInFavoritsAC = (idNews, idProfile) => async (dispatch) => {
 			idProfile
 		})
 	})
+}
+
+export const deleteInFavoritsAC = (idNews, idProfile) => async (dispatch) => {
+	try {
+		return fetch('http://localhost:3000/api/favorits', {
+			method: 'DELETE',
+			headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			idNews,
+			idProfile
+		})
+		})
+	} catch (e) {
+		console.log(e);
+	}
 }
 
 export default profileReducer;

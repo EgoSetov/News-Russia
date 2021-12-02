@@ -33,14 +33,8 @@ export default function FormRegister(props) {
 				text: 'Неправильный логин или пароль'
 			})
 			return
-		} else {
-			// reload()
 		}
 
-	}
-
-	function reload() {
-		location.reload()
 	}
 	
 	return (
@@ -50,10 +44,10 @@ export default function FormRegister(props) {
 				<span style={{ display: messageError.show ? '' : 'none', color: 'red' }}>* {messageError.text}</span>
 				<div className="row">
 					<div className="input-field col s12">
-						<input required value={inputValue.email} onChange={changeInputValue} name="email" placeholder="Email" id="icon_telephone" type="tel" className="validate" />
+						<input required value={inputValue.email} onChange={changeInputValue} name="email" placeholder="Email" type="email" className="validate" />
 					</div>
 					<div className="input-field col s12">
-						<input required value={inputValue.password} onChange={changeInputValue} name="password" placeholder="Password" id="icon_telephone" type="tel" className="validate" />
+						<input required value={inputValue.password} onChange={changeInputValue} name="password" placeholder="Password" type="password" className="validate" />
 					</div>
 				</div>
 				<div className={s.btnSend}>

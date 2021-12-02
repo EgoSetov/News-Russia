@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addUserAC } from '../../store/profileReducer'
+import { registAC } from '../../store/profileReducer'
 import FormAuth from './FormAuth'
 import s from '../../styles/formRegister.module.css'
 
@@ -26,17 +26,19 @@ export default function FormRegister(props) {
 
 	const sendInputValue = async (e) => {
 		e.preventDefault()
-		const responce = await dispatch(addUserAC({
+		const responce = await dispatch(registAC({
 			name: inputValue.name,
 			email: inputValue.email,
 			password: inputValue.password
 		}))
-		if (responce.status === 201) {
-			setMessageError({
+		if (responce?.status === 201) {
+			return setMessageError({
 				show: true,
 				text: "Пользователь с такой почтой уже существует"
 			})
 		}
+		props.changeFormsShow('formReg'); 
+		props.changeFormsShow('formAuth')
 	}
 
 	return (
@@ -47,13 +49,13 @@ export default function FormRegister(props) {
 					<span style={{ display: messageError.show ? '' : 'none', color: 'red' }}>* {messageError.text}</span>
 					<div className="row">
 						<div className="input-field col s12">
-							<input required value={inputValue.name} onChange={changeInputValue} name="name" placeholder="Name" id="icon_prefix" type="text" className="validate" />
+							<input required value={inputValue.name} onChange={changeInputValue} name="name" placeholder="Name" type="text" className="validate" />
 						</div>
 						<div className="input-field col s12">
-							<input required value={inputValue.email} onChange={changeInputValue} name="email" placeholder="Email" id="icon_telephone" type="tel" className="validate" />
+							<input required value={inputValue.email} onChange={changeInputValue} name="email" placeholder="Email" type="email" className="validate" />
 						</div>
 						<div className="input-field col s12">
-							<input required value={inputValue.password} onChange={changeInputValue} name="password" placeholder="Password" id="icon_telephone" type="tel" className="validate" />
+							<input required value={inputValue.password} onChange={changeInputValue} name="password" placeholder="Password" type="password" className="validate" />
 						</div>
 					</div>
 					<div className={s.btnSend}>

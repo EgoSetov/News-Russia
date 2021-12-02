@@ -2,7 +2,7 @@ import { useState } from "react"
 import Router from 'next/router'
 import CardNews from "../../components/CardNews"
 import { useDispatch } from "react-redux"
-import { addPostInFavoritsAC } from '../../store/profileReducer'
+import { addPostInFavoritsAC, deleteInFavoritsAC } from '../../store/profileReducer'
 
 export default function News(props) {
 	const { dataNews, dataProfile } = props
@@ -15,9 +15,20 @@ export default function News(props) {
 		dispatch(addPostInFavoritsAC(idNews, profile.id))
 	}
 
+	const deleteInFavorits = async (idNews) => {
+		dispatch(deleteInFavoritsAC(idNews, profile.id))
+	}
+
 	return (
 		<div>
-			{news.map(news => <CardNews addPostInFavorits={addPostInFavorits} profile={profile} key={news.id} info={news} />)}
+			{news.map(news => (
+			<CardNews
+			key={news.id} 
+			info={news}  
+			profile={profile} 
+			deleteInFavorits={deleteInFavorits} 
+			addPostInFavorits={addPostInFavorits} 
+			/>))}
 		</div>
 	)
 }

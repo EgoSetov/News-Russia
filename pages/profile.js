@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import FormRegister from "../components/Form/FormRegister"
 import FormAuth from '../components/Form/FormAuth'
-import { addProfileAC, exitAccount } from "../store/profileReducer"
+import { addProfileAC, exitAccount, deleteInFavoritsAC } from "../store/profileReducer"
 import CardNews from "../components/CardNews";
 
 export default function Profile(props) {
@@ -30,7 +30,9 @@ export default function Profile(props) {
 		dispatch(exitAccount())
 	}
 
-	console.log(profile.favoritsPost);
+	const deleteInFavorits = async (idNews) => {
+		dispatch(deleteInFavoritsAC(idNews, stateProfile.id))
+	}
 
 	return (
 		stateProfile.name
@@ -43,7 +45,15 @@ export default function Profile(props) {
 				<hr />
 				<div>
 					<h2>Favorits</h2>
-					{!stateProfile.favoritsPost?.length ? '' : stateProfile.favoritsPost.map(news => <CardNews profile={stateProfile} info={news} />)}
+					{!stateProfile.favoritsPost?.length ? 
+					null 
+					: 
+					stateProfile.favoritsPost.map(news => (
+					<CardNews 
+					profile={stateProfile} 
+					info={news}
+					deleteInFavorits={deleteInFavorits} 
+					/>))}
 				</div>
 			</div >
 			:
