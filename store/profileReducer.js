@@ -10,6 +10,22 @@ const profileReducer = (state = initialState, action) => {
 				profile
 			}
 		}
+		case 'addPostsInFavorits': {
+			return {
+				profile: {
+					...state.profile,
+					favoritsPost: [...state.profile.favoritsPost, action.news]
+				}
+			}
+		}
+		case 'deletePostsInFavorits': {
+			return {
+				profile: {
+					...state.profile,
+					favoritsPost: state.profile.favoritsPost.filter(news => news.id !== action.id)
+				}
+			}
+		}
 		default: {
 			return state
 		}
@@ -41,28 +57,28 @@ export const registAC = (profile) => async (dispatch) => {
 
 export const authAC = (profile) => async (dispatch) => {
 	const { email, password } = profile
-	try{
+	try {
 		const response = await fetch('http://localhost:3000/api/auth', {
-		method: 'POST',
-		headers: {
-			"Accept": "application/json",
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			emailReq: email,
-			passwordReq: password
+			method: 'POST',
+			headers: {
+				"Accept": "application/json",
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				emailReq: email,
+				passwordReq: password
+			})
 		})
-	})
-	const dataprofile = await fetch('http://localhost:4200/profile').
-		then(data => data.json())
-	dispatch(addProfileAC(dataprofile))
-	return response
-	
+		const dataprofile = await fetch('http://localhost:4200/profile').
+			then(data => data.json())
+		dispatch(addProfileAC(dataprofile))
+		return response
+
 	}
-	catch(e){
+	catch (e) {
 		console.log(e);
 	}
-	
+
 }
 
 export const exitAccount = () => async (dispatch) => {
@@ -97,13 +113,13 @@ export const deleteInFavoritsAC = (idNews, idProfile) => async (dispatch) => {
 		return fetch('http://localhost:3000/api/favorits', {
 			method: 'DELETE',
 			headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			idNews,
-			idProfile
-		})
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				idNews,
+				idProfile
+			})
 		})
 	} catch (e) {
 		console.log(e);

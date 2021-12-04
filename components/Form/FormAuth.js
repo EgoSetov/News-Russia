@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { authAC } from '../../store/profileReducer'
 import s from '../../styles/formRegister.module.css'

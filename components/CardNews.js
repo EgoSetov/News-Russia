@@ -1,8 +1,29 @@
 import Link from 'next/link'
+import Router from 'next/router'
+import { useDispatch, useSelector } from 'react-redux'
+import { addPostInFavoritsAC, deleteInFavoritsAC } from '../store/profileReducer'
 
 export default function CardNews(props) {
+	const dispatch = useDispatch()
 	const { imageUrl, id, title, body } = props.info
-	const { favoritsPost, email } = props.profile
+	const profile = useSelector(state => state.profile.profile)
+
+	const addPostInFavorits = async (idNews) => {
+		if (!profile.name) return Router.push('/profile')
+		dispatch({
+			type: 'addPostsInFavorits',
+			news: props.info
+		})
+		dispatch(addPostInFavoritsAC(idNews, profile.id))
+	}
+
+	const deleteInFavorits = async (idNews) => {
+		dispatch(deleteInFavoritsAC(idNews, profile.id))
+		dispatch({
+			type: 'deletePostsInFavorits',
+			id: idNews
+		})
+	}
 
 	return (
 		<div className="row">
@@ -24,10 +45,10 @@ export default function CardNews(props) {
 						<Link href={`/news/${id}`}>
 							<a>Подробнее</a>
 						</Link>
-						{!favoritsPost?.some(news => news.id === id) ? 
-						<button className="btn" onClick={() => props.addPostInFavorits(id)} className="btn">Добавить в избранное</button>
+						{!profile.favoritsPost?.some(news => news.id === id) ? 
+						<button className="btn" onClick={() => addPostInFavorits(id)} className="btn">Добавить в избранное</button>
 						:
-						<button className="btn" onClick={() => props.deleteInFavorits(id)} className="btn">Убрать из избранного</button>
+						<button className="btn" onClick={() => deleteInFavorits(id)} className="btn">Убрать из избранного</button>
 						}
 						
 					</div>

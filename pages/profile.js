@@ -45,15 +45,16 @@ export default function Profile(props) {
 				<hr />
 				<div>
 					<h2>Favorits</h2>
-					{!stateProfile.favoritsPost?.length ? 
-					null 
-					: 
-					stateProfile.favoritsPost.map(news => (
-					<CardNews 
-					profile={stateProfile} 
-					info={news}
-					deleteInFavorits={deleteInFavorits} 
-					/>))}
+					{!stateProfile.favoritsPost?.length ?
+						null
+						:
+						stateProfile.favoritsPost.map(news => (
+							<CardNews
+								key={news.id}
+								profile={stateProfile}
+								info={news}
+								deleteInFavorits={deleteInFavorits}
+							/>))}
 				</div>
 			</div >
 			:

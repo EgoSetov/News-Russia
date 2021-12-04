@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import s from '../styles/header.module.css'
 
